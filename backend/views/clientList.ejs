@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client List</title>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        transform: scale(0.85);
+    }
+
+    .nav-container {
+        background-color: #f2f2f2;
+        padding: 10px;
+    }
+
+    .nav-link {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    h1 {
+        color: #007bff;
+    }
+
+    /* Add the following style for the table */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    table,th,td {
+        border: 1px solid #000;
+    }
+
+    th{
+        padding: 20px;
+        text-align: left;
+    }
+    td {
+        padding-left: 5px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+    .back-button {
+            position: fixed;
+            top: 10px;
+            left: 2px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+    }
+</style>
+
+<body>
+    <button class="back-button" onclick="location.href='/'">Back to Homepage</button>
+    <div class="container">
+        <h1>Client List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Client ID</th>
+                    <th>Client Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Services Required</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% clients.forEach(client=> { %>
+                    <tr>
+                        <td>
+                            <%= client.ClientID %>
+                        </td>
+                        <td>
+                            <%= client.ClientName %>
+                        </td>
+                        <td>
+                            <%= client.Address %>
+                        </td>
+                        <td>
+                            <%= client.Email %>
+                        </td>
+                        <td>
+                            <%= client.Phone %>
+                        </td>
+                        <td>
+                            <%= client.Gender %>
+                        </td>
+                        <td>
+                            <ul>
+                                <% client.Services.forEach(service => { %>
+                                    <li><%= service.ServiceName %></li>
+                                <% }); %>
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="/client/edit/<%= client.ClientID %>">Edit</a> | <a href="/client/delete/<%= client.ClientID %>" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

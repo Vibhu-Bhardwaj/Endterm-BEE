@@ -1,0 +1,66 @@
+/* Form.css */
+
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;   
+  
+}
+
+.form-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cancel-button {
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.form-switch {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.form-switch span {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form-switch .active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form input,
+.auth-form button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.auth-form button {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.dob-label {
+  margin-right: 10px;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Employee List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .add-button {
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="back-button" onclick="location.href='/'">Back to Homepage</button>
+    <h1>Employee List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Service Specializations</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% employees.forEach(employee=> { %>
+                <tr>
+                    <td>
+                        <%= employee.EmployeeID %>
+                    </td>
+                    <td>
+                        <%= employee.EmployeeName %>
+                    </td>
+                    <td>
+                        <%= employee.Email %>
+                    </td>
+                    <td>
+                        <%= employee.Phone %>
+                    </td>
+                    <td>
+                        <%= employee.Gender %>
+                    </td>
+                    <td>
+                        <ul>
+                            <% employee.Services.forEach(service=> { %>
+                                <li>
+                                    <%= service %>
+                                </li>
+                                <% }); %>
+                        </ul>
+                    </td>
+                    <td><a href="/employee/edit/<%= employee.EmployeeID %>?id=<%= employee.EmployeeID %>">Edit</a></td>
+                    <td><a href="/employee/delete/<%= employee.EmployeeID %>">Delete</a></td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+
+    <button class="add-button" onclick="location.href='/employee/new'">Add Employee</button>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!-- editEmployeeForm.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Edit Employee</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="back-button" onclick="location.href='/'">Back to Homepage</button>
+    <h1>Edit Employee</h1>
+
+    <form action="/employee/edit/<%= employee.EmployeeID %>" method="POST">
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" id="employeeName" name="employeeName" value="<%= employee.EmployeeName %>" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= employee.Email %>" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" value="<%= employee.Phone %>">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male" <%=employee.Gender==='Male' ? 'selected' : '' %>>Male</option>
+            <option value="Female" <%=employee.Gender==='Female' ? 'selected' : '' %>>Female</option>
+        </select>
+        <br><br>
+        <label for="services">Service Specializations:</label>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% availableServices.forEach(service=> { %>
+                    <tr>
+                        <td>
+                            <%= service.ServiceName %>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="services" value="<%= service.ServiceID %>" <% if
+                                (employeeServices.some(eService=> eService.ServiceID === service.ServiceID)) { %>
+                            checked <% } %>>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <br>
+        <button type="submit">Update Employee</button>
+    </form>
+</body>
+</html>

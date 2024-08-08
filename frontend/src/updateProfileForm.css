@@ -1,0 +1,81 @@
+/* UpdateProfileForm.css */
+.update-profile-form {
+  position: fixed;
+  max-width: 500px;
+  margin: 0 auto;
+  left:35%;
+  z-index: 10;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+  top: 20%;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.update-button{
+  margin-left: 28%;
+}
+
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #fff;
+  color: #007BFF;
+}
+
+.close-button:hover {
+  background-color: red;
+  color: #fff;
+}
+.delete-button{
+  width: 100%;
+  margin-top: 2%;
+  transform: scaleY(0.85);
+  background-color: red;
+}
+.delete-button:hover{
+  background-color: rgb(90, 10, 10);
+}

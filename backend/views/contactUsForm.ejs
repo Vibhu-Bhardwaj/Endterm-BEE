@@ -1,0 +1,95 @@
+<!-- contactUsForm.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>ContactUs Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="back-button" onclick="location.href='/'">Back to Homepage</button>
+    <h1>ContactUs Form</h1>
+    <form action="/contactus/new" method="post">
+        <label for="fullName">Full Name:</label>
+        <input type="text" name="fullName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" name="phone">
+
+        <label for="service">Select Service:</label>
+        <select name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <% services.forEach(service => { %>
+                <option value="<%= service.ServiceID %>"><%= service.ServiceName %></option>
+            <% }); %>
+            <option value="null">Other</option>
+        </select>
+
+        <label for="message">Message:</label>
+        <textarea name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit Inquiry</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!-- servicesList.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .add-button:hover {
+            background-color: #0865c8b2;
+            text-decoration: none;
+        }
+
+        .add-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="back-button" onclick="location.href='/'">Back to Homepage</button>
+    <h1>Services List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Service ID</th>
+                <th>Service Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Currency</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% services.forEach(service=> { %>
+                <tr>
+                    <td>
+                        <%= service.ServiceID %>
+                    </td>
+                    <td>
+                        <%= service.ServiceName %>
+                    </td>
+                    <td>
+                        <%= service.Description %>
+                    </td>
+                    <td>
+                        <%= service.Price %>
+                    </td>
+                    <td>
+                        <%= service.Currency %>
+                    </td>
+                    <td>
+                        <a href="/service/edit/<%= service.ServiceID %>">Edit</a>|
+                        <a href="/service/delete/<%= service.ServiceID %>">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+
+    <a href="/service/new" class="add-button">Add Service</a>
+</body>
+
+</html>

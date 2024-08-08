@@ -1,0 +1,88 @@
+/* ServiceForm.css */
+.service-form-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  top: 12%;
+}
+
+h2 {
+  color: #007bff;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+}
+
+.service-checkbox {
+  margin-right: 8px;
+}
+
+.service-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.service-button:hover {
+  background-color: #0056b3;
+}
+
+
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.service-table th,
+.service-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.service-checkbox {
+  margin: 0;
+}
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #fff;
+  color: #007BFF;
+}
+
+.close-button:hover {
+  background-color: red;
+  color: #fff;
+}
+
+
+.total-price {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}

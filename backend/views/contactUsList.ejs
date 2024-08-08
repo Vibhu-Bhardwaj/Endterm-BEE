@@ -1,0 +1,83 @@
+<!-- contactList.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Contact Inquiry List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <button class="back-button" onclick="location.href='/'">Back to Homepage</button>
+    <h1>Contact Inquiry List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Inquiry ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+                <th>Service Name</th>
+                <th>Reply</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% inquiries.forEach(inquiry => { %>
+                <tr>
+                    <td><%= inquiry.InquiryID %></td>
+                    <td><%= inquiry.FullName %></td>
+                    <td><%= inquiry.Email %></td>
+                    <td><%= inquiry.Phone %></td>
+                    <td><%= inquiry.Message %></td>
+                    <td><%= inquiry.ServiceName || 'OTHER' %></td>
+                    <td><a href="#">Reply</a></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>
